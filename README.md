@@ -6,10 +6,12 @@
 - 对url做了一些简单的认证和权限管理
 ## 技术栈
 ```bash
-Spring + SpringMVC + Mybatis + Mysql 
+Tomcat + Spring + SpringMVC + Mybatis + Mysql 
 ```
 ## 运行方式
 ```bash
-# 这是注释
+# 将/out/artifacts/Contact_war文件夹解压到tomcat的/webapps目录，删除原有的ROOT文件夹，并重命名为ROOT。
+
+# 进入tomcat的bin目录，linux运行./startup.sh,windows运行startup.bat。
 
 ```

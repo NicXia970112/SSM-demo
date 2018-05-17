@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ece20b4-522d-4c93-b3b2-eaeaf957f807" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Contact_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -71,8 +69,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="195">
-                <caret line="13" selection-start-line="13" selection-end-line="13" />
+              <first_editor relative-caret-position="253">
+                <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
               </first_editor>
               <second_editor />
             </state>
@@ -227,6 +225,12 @@
               <item name="Contact" type="b2602c69:ProjectViewProjectNode" />
               <item name="Contact" type="462c0819:PsiDirectoryNode" />
               <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Contact" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Contact" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -561,7 +565,7 @@
       <workItem from="1526469943390" duration="3007000" />
       <workItem from="1526523964930" duration="3606000" />
       <workItem from="1526537553075" duration="857000" />
-      <workItem from="1526538658681" duration="4909000" />
+      <workItem from="1526538658681" duration="5713000" />
     </task>
     <servers />
   </component>
@@ -598,10 +602,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52894000" />
+    <option name="totallyTimeSpent" value="53698000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
@@ -616,7 +621,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32843137" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32786885" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.32843137" />
@@ -999,8 +1004,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="195">
-            <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <first_editor relative-caret-position="253">
+            <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
           </first_editor>
           <second_editor />
         </state>
