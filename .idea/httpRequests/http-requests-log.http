@@ -1,0 +1,14 @@
+GET http://localhost:8080/users
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/test.html
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-05-14T024927.200.html
+
+###
+

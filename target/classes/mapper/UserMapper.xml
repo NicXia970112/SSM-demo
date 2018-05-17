@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="space.nicxia.dao.UserDao">
+    <insert id="insertUser" parameterType="User">
+        <selectKey keyProperty="userId" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        INSERT
+        INTO
+        user (user_name)
+        VALUES (#{userName})
+    </insert>
+
+    <insert id="insertUserInfo" parameterType="UserInfo">
+
+        INSERT
+        INTO
+        user_info(user_id, user_email)
+        VALUES (#{userId}, #{userEmail})
+    </insert>
+
+    <update id="deleteUserByUserId" parameterType="int">
+        UPDATE
+        user_info
+        SET user_status = 0
+        WHERE
+        user_id = #{VALUE}
+    </update>
+
+    <resultMap id="getUserVo" type="UserVo">
+        <association property="user" javaType="User">
+            <id column="user_id" property="userId"/>
+            <result column="user_name" property="userName"/>
+        </association>
+
+        <association property="userInfo" javaType="UserInfo">
+            <result column="user_id" property="userId"/>
+            <result column="user_email" property="userEmail"/>
+        </association>
+    </resultMap>
+
+
+
+
+    <select id="getUserVoByUserId" parameterType="int" resultMap="getUserVo">
+        SELECT
+        user.user_id,
+        user.user_name,
+        user_info.user_email
+        FROM
+        user INNER JOIN user_info
+        WHERE
+        user.user_id = user_info.user_id
+        AND
+        user.user_id = #{VALUE}
+        AND
+        user_info.user_status = 1
+    </select>
+
+    <update id="updateUserByUser" parameterType="User">
+        UPDATE
+        user
+        SET user_name = #{userName}
+        WHERE
+        user_id = #{userId}
+    </update>
+
+    <update id="updateUserInfoByUserInfo" parameterType="UserInfo">
+        UPDATE
+        user_info
+        SET user_email = #{userEmail}
+        WHERE
+        user_id = #{userId}
+    </update>
+
+    <select id="getUserPasswordByUserId" parameterType="int" resultType="String">
+        SELECT
+        password
+        FROM
+        user_pwd
+        WHERE
+        user_id = #{VALUE}
+    </select>
+
+    <update id="updateUserPasswordByUserPassword" parameterType="UserPassword">
+        UPDATE
+        user_pwd
+        SET password = #{userPassword}
+        WHERE
+        user_id = #{userId}
+    </update>
+
+    <insert id="insertPasswordByUserPassword" parameterType="UserPassword">
+        INSERT
+        INTO
+        user_pwd(password, user_id)
+        VALUES
+        (#{userPassword},#{userId})
+    </insert>
+
+</mapper>

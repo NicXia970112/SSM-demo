@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="space.nicxia.dao.ContactDao">
+
+    <resultMap id="getContactVo" type="ContactVo">
+        <association property="contact" javaType="Contact">
+            <id column="contact_id" property="contactId"/>
+            <result column="contact_name" property="contactName"/>
+            <result column="user_id" property="userId"/>
+        </association>
+
+
+        <!-- 映射到collection必须添加主键字段 -->
+        <collection property="contactInfos" ofType="ContactInfo">
+            <id column="contact_info_id" property="contactInfoId"/>
+            <result column="contact_id" property="contactId"/>
+            <result column="contact_user_name" property="contactUserName"/>
+            <result column="contact_user_tel" property="contactUserTel"/>
+        </collection>
+    </resultMap>
+
+
+
+    <select id="getContactVoByContactId" parameterType="int" resultMap="getContactVo">
+        SELECT
+        contact.contact_id,
+        contact.contact_name,
+        contact.user_id,
+        contact_info.contact_info_id,
+        contact_info.contact_user_name,
+        contact_info.contact_user_tel
+        FROM
+        contact INNER JOIN  contact_info
+        WHERE
+        contact.contact_id = contact_info.contact_id
+        AND
+        contact.contact_status = 1 AND contact_info.contact_info_status = 1
+        AND
+        contact.contact_id = #{VALUE}
+    </select>
+    
+    <select id="getContactIdsByUserId" parameterType="int" resultType="int">
+        SELECT
+        contact_id
+        FROM
+        contact
+        WHERE
+        user_id = #{VALUE}
+        AND
+        contact_status = 1
+    </select>
+    
+    <insert id="insertContactByContact" parameterType="Contact">
+        <selectKey keyProperty="contactId" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        INSERT
+        INTO
+        contact (contact_name, user_id)
+        VALUES (#{contactName}, #{userId})
+    </insert>
+
+    <update id="updateContactByContact" parameterType="Contact">
+        UPDATE
+        contact
+        SET contact_name = #{contactName}, user_id = #{userId}
+        WHERE
+        contact_id = #{contactId}
+    </update>
+
+    <update id="deleteContactByContact" parameterType="Contact">
+        UPDATE
+        contact
+        SET contact_status = 0
+        WHERE
+        contact_id = #{contactId}
+    </update>
+
+    <insert id="insertContactInfoByContactInfo" parameterType="ContactInfo">
+        <selectKey keyProperty="contactInfoId" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        INSERT
+        INTO
+        contact_info (contact_id, contact_user_name, contact_user_tel)
+        VALUES
+        (#{contactId}, #{contactUserName}, #{contactUserTel})
+    </insert>
+
+    <update id="updateContactInfoByContactInfo" parameterType="ContactInfo">
+        UPDATE
+        contact_info
+        SET contact_id = #{contactId}, contact_user_name = #{contactUserName}, contact_user_tel = #{contactUserTel}
+        WHERE
+        contact_info_id = #{contactInfoId}
+    </update>
+
+    <update id="deleteContactInfoByContactInfo" parameterType="ContactInfo">
+        UPDATE
+        contact_info
+        SET contact_info_status = 0
+        WHERE
+        contact_info_id = #{contactInfoId}
+    </update>
+</mapper>
