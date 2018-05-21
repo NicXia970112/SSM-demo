@@ -17,3 +17,8 @@ Tomcat + Spring + SpringMVC + Mybatis + Mysql
 # 进入tomcat的bin目录，linux运行./startup.sh,windows运行startup.bat。
 
 ```
+
+## 项目解析
+
+### 配置SSM框架
+- [怎样配置ssm？]()
