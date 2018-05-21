@@ -21,4 +21,4 @@ Tomcat + Spring + SpringMVC + Mybatis + Mysql
 ## 项目解析
 
 ### 配置SSM框架
-- [怎样配置ssm？]()
+- [怎样配置ssm？](https://github.com/NicXia970112/ssm-config)
