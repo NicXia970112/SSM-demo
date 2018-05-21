@@ -10,6 +10,8 @@ Tomcat + Spring + SpringMVC + Mybatis + Mysql
 ```
 ## 运行方式
 ```bash
+# 在系统环境变量中配置好jvm和jre
+
 # 将/out/artifacts/Contact_war文件夹解压到tomcat的/webapps目录，删除原有的ROOT文件夹，并重命名为ROOT。
 
 # 进入tomcat的bin目录，linux运行./startup.sh,windows运行startup.bat。
